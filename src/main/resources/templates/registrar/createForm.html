@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="O. Kalu">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <title>Home Page</title>
+</head>
+<body>
+<h3> Student Registration Form </h3>
+<form th:action="@{/create}"  th:object="${newStudent}" method="post">
+
+    <div class="form-group">
+
+        <label for="StudentNumber">StudentNumber</label>
+        <input type="text" class="form-control" id="StudentNumber" placeholder="e.g 610-5444" th:field="*{studentNumber}"  >
+    </div>
+    <div class="form-group">
+        <label for ="FirstName">First Name</label>
+        <input type="text" class="form-control" id="FirstName" placeholder="required" th:field ="*{firstName}" >
+    </div>
+    <div class="form-group">
+        <label for ="MiddleName" >Middle Name</label>
+        <input type="text" class="form-control" id="MiddleName" placeholder="optional" th:field="*{middleName}" >
+    </div>
+    <div class="form-group">
+        <label for="LastName">Last Name</label>
+        <input  class="form-control" id="LastName" placeholder="required" th:field ="*{lastName}" >
+    </div>
+    <div class="form-group">
+        <label for ="DateOfEnrollment">Date of Enrollment</label>
+        <input type="date" class="form-control" id="DateOfEnrollment" placeholder="required" th:field ="*{enrollmentDate}" >
+    </div>
+    <div class="form-group">
+        <label for="CGPA"> CGPA</label>
+        <input type="text" class="form-control" id="CGPA" placeholder="optional" th:field ="*{cgpa}" >
+    </div>
+<!--    <div class="form-group">-->
+<!--        <label for="international"> International</label>-->
+<!--        <input type="text" class="form-control" id="international" placeholder="required" th:field ="*{international}" >-->
+<!--    </div>-->
+    <div class="form-group">
+        <p>International Student </p>
+        <label for="isInternational"> Yes</label>
+        <input type="radio" class="form-control" id="isInternational" name="international" th:field="${newStudent.international}" th:value="true">
+        <label for="isNotInternational"> No</label>
+        <input type="radio" class="form-control" id="isNotInternational" name="international" th:field="${newStudent.international}" th:value="false">
+    </div>
+<!--    <div class="form-check">-->
+<!--        <ul>-->
+<!--            "book, iter : ${books}"-->
+<!--            <li th:each="student : ${}">-->
+<!--                <input type="radio" th:field="*{type}" th:value="${ty}" />-->
+<!--                <label th:for="${#ids.prev('type')}" th:text="#{${'seedstarter.type.' + ty}}">Wireframe</label>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--        <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--        <label class="form-check-label" for="exampleCheck1">International Student</label>-->
+
+<!--    </div>-->
+<p></p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
